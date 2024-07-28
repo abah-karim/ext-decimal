@@ -1,10 +1,22 @@
-- name: Build the extension
-  uses: php/php-windows-builder/extension@v1
-  with:
-    extension-url: https://github.com/abah-karim/ext-decimal.git
-    extension-ref: '1.5.0'
-    php-version: '8.2'
-    ts: ts
-    arch: x64
-    args: --enable-xdebug
-    libs: decimal
+name: Build Decimal Extension
+on:
+  release:
+    types: [published]
+jobs:
+  php:
+    strategy:
+      matrix:
+        arch: [x64]
+        ts: [ts]
+    runs-on: windows-2019
+    steps:
+      - name: Build the extension
+        uses: php/php-windows-builder/extension@v1
+        with:
+          extension-url: https://github.com/abah-karim/ext-decimal.git
+          extension-ref: '1.5.0'
+          php-version: '8.2'
+          ts: ts
+          arch: x64
+          args: --enable-xdebug
+          libs: decimal
