@@ -8,7 +8,7 @@ jobs:
       matrix:
         arch: [x64]
         ts: [ts]
-    runs-on: windows-2022
+    runs-on: windows-latest
     steps:
       - name: Build the extension
         uses: php/php-windows-builder/extension@v1
