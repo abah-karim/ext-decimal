@@ -1,4 +1,4 @@
-name: Build Decimal Extension
+name: Build Extension
 on:
   release:
     types: [published]
